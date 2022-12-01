@@ -1,3 +1,3 @@
 <?php
-echo $_GET['pass'];
+echo "P:" .$_GET['pass'];
 echo "u:".$_GET['user'];
