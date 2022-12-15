@@ -3,6 +3,8 @@
 <?php
 include "condb.php";
 ?>
+<div> id="div_res"></div>
+
 <table>
     <thead>
         <tr>
@@ -15,12 +17,12 @@ include "condb.php";
     </thead>
     <tbody>
         <?php
-        $sql = "SELECT * FROM tb_student ORDER BY std_id ASC";
+        $sql = "SELECT * FROM db_std ORDER BY std_id ASC";
         $result = mysqli_query($link, $sql);
         while ($row = mysqli_fetch_assoc($result)) {
         ?>
             <tr>
-                <td><?= $row['std_id'] ?></td>
+                <td><?= $row['id_student'] ?></td>
                 <td><?= $row['std_name'] ?></td>
                 <td><?= $row['std_sname'] ?></td>
                 <td><button class="btn_edit" data="<?= $row['std_id'] ?>">Edit</button></td>
@@ -34,6 +36,17 @@ include "condb.php";
 
 <script>
     $(".btn_del").click(function() {
-        alert($(this).attr('data'));
+        //alert($(this).attr('data'));
+        let id_val = $(this).attr('data');
+        $.ajax({
+            url:"del.php",
+            method:"GET",
+            data: {
+                id:id_val
+            },
+            success: function (res) {
+                $("#div_res").html(res);
+            }
+        });
     });
 </script>
