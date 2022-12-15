@@ -17,7 +17,7 @@ include "condb.php";
     </thead>
     <tbody>
         <?php
-        $sql = "SELECT * FROM db_std ORDER BY std_id ASC";
+        $sql = "SELECT * FROM td_std ORDER BY std_id ASC";
         $result = mysqli_query($link, $sql);
         while ($row = mysqli_fetch_assoc($result)) {
         ?>
