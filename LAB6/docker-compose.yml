@@ -6,4 +6,3 @@ services:
     ports:
       - 1080:80
       - 25:25
-
